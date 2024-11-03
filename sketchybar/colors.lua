@@ -1,25 +1,25 @@
 return {
-    black = 0xff272722,
-    white = 0xfff1f2f1,
-    red = 0xffea687e,
-    green = 0xff85f298,
-    blue = 0xff86d0f9,
-    yellow = 0xfffdf4b1,
-    orange = 0xfff39660,
+    black = 0xff1e222a,
+    white = 0xffd7dae0,
+    red = 0xffe06c75,
+    green = 0xff98c379,
+    blue = 0xff61afef,
+    yellow = 0xffe7c787,
+    orange = 0xfffca2aa,
     magenta = 0xfff2a8d5,
-    grey = 0xff888da7,
+    grey = 0xff42464e,
     transparent = 0x00000000,
 
     bar = {
-        bg = 0xff353743,
+        bg = 0xff282c34,
         border = 0xff2c2e34,
     },
     popup = {
-        bg = 0xc0353743,
+        bg = 0xc0282c34,
         border = 0xff7f8490
     },
     item = {
-        bg = 0xff303238,
+        bg = 0xff1e222a,
         border = 0xff414550,
         border_selected = 0xfff1f2f1
     },

@@ -3,7 +3,7 @@ shell = "/bin/zsh"
 
 [general]
 live_config_reload = true
-import = ["~/.config/alacritty/snazzy.toml"]
+import = ["~/.config/alacritty/onedark.toml"]
 
 [env]
 TERM = "xterm-256color"
@@ -12,11 +12,11 @@ TERM = "xterm-256color"
 size = 14.0
 
 [font.bold]
-family = "Fira Code"
+family = "FiraCode Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Fira Code"
+family = "FiraCode Nerd Font"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -24,11 +24,11 @@ x = 0
 y = 1
 
 [font.italic]
-family = "Fira Code"
+family = "FiraCode Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Fira Code"
+family = "FiraCode Nerd Font"
 style = "Regular"
 
 [font.offset]
@@ -49,4 +49,4 @@ option_as_alt = "Both"     # (macOS only)
 
 [window.padding]
 x = 6
-y = 6
+y = 0
