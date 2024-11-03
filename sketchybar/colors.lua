@@ -20,11 +20,11 @@ return {
     },
     item = {
         bg = 0xff1e222a,
-        border = 0xff414550,
-        border_selected = 0xfff1f2f1
+        border = 0xff42464e,
+        border_selected = 0xffd7dae0
     },
-    bg1 = 0xff363944,
-    bg2 = 0xff414550,
+    bg1 = 0xff353b45,
+    bg2 = 0xff42464e,
 
     with_alpha = function(color, alpha)
         if alpha > 1.0 or alpha < 0.0 then return color end

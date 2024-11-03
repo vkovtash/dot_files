@@ -34,7 +34,7 @@ background = "#6f737b"
 
 [colors.selection]
 text = "#d7dae0"
-background = "#484b5d"
+background = "#42464e"
 
 [colors.normal]
 black = "#1e222a"
@@ -47,10 +47,10 @@ cyan = "#42b3c2"
 white = "#d7dae0"
 
 [colors.bright]
-black = "#484b5d"
-red = "#ff616e"
+black = "#565c64"
+red = "#be5046"
 green = "#7eca9c"
-yellow = "#e7c787"
+yellow = "#d19a66"
 blue = "#4dc4ff"
 magenta = "#ec76bd"
 cyan = "#4cd1e0"
