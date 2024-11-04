@@ -3,6 +3,9 @@ HISTSIZE=10000
 SAVEHIST=1000
 setopt HIST_IGNORE_ALL_DUPS
 
+# Enable colors in ls
+CLICOLOR=1
+
 path=('/opt/bitwarden' $path)
 path=('/opt/homebrew/bin' $path)
 path=('/usr/local/bin' $path)
@@ -25,4 +28,5 @@ source "$HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-subst
 bindkey '^[[A' history-substring-search-up   # ꜛ
 bindkey '^[[B' history-substring-search-down # ꜜ
 
+alias ls='ls --color=auto'
 alias ll='ls -al'
