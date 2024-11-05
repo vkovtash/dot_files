@@ -1,0 +1,45 @@
+[colors]
+
+background = "#282c34"
+foreground = "#d7dae0"
+
+cursor_bg = "#6f737b"
+cursor_border = "#6f737b"
+cursor_fg = "#d7dae0"
+
+selection_fg = "#d7dae0"
+selection_bg = "#42464e"
+
+split = "#1e222a"
+
+compose_cursor = "#d19a66"
+
+scrollbar_thumb = "#42464e"
+
+ansi = [
+  "#1e222a",
+  "#e06c75",
+  "#98c379",
+  "#e7c787",
+  "#61afef",
+  "#f2a8d5",
+  "#42b3c2",
+  "#d7dae0",
+]
+
+brights = [
+  "#565c64",
+  "#be5046",
+  "#7eca9c",
+  "#d19a66",
+  "#4dc4ff",
+  "#ec76bd",
+  "#4cd1e0",
+  "#e6e6e6",
+]
+
+[colors.indexed]
+
+[metadata]
+aliases = ["OneDark"]
+name = "One Dark"
