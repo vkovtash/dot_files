@@ -15,6 +15,9 @@ lalt - l : yabai -m window --focus east  || yabai -m display --focus east
 # lalt - h : yabai -m window --focus first
 # lalt - a : yabai -m window --focus  last
 
+# Cycle through windows
+lalt - n : yabai -m window --focus next || yabai -m window --focus first
+
 # Float / Unfloat window: lalt - space
 lalt - space : yabai -m window --toggle float
 
