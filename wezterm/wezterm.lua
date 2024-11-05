@@ -12,13 +12,13 @@ config.enable_tab_bar = false
 config.window_close_confirmation = 'NeverPrompt'
 config.window_decorations = "RESIZE"
 
-config.enable_scroll_bar = true
+config.enable_scroll_bar = false
 
 config.window_padding = {
   left = 6,
-  right = 12,
-  top = 0,
-  bottom = 0,
+  right = 6,
+  top = 6,
+  bottom = 6,
 }
 
 return config
