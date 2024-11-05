@@ -94,4 +94,6 @@ lalt - v : yabai -m window --insert south; skhd -k "cmd - n"
 # Toggle sketchybar
 shift + lalt - space : sketchybar --bar hidden=toggle
 
-shift + lalt - a : alacritty msg create-window
+# New terminal window
+# shift + lalt - a : alacritty msg create-window
+shift + lalt - a : wezterm start
