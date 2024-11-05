@@ -99,4 +99,4 @@ shift + lalt - space : sketchybar --bar hidden=toggle
 
 # New terminal window
 # shift + lalt - a : alacritty msg create-window
-shift + lalt - a : wezterm start
+shift + lalt - a : nohup /Applications/WezTerm.app/Contents/MacOS/wezterm start > /dev/null 2>&1 &
