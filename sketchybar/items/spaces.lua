@@ -32,7 +32,6 @@ for i = 1, SPACE_COUNT, 1 do
             height = 28,
             border_color = colors.item.border,
         },
-        updates = true,
         popup = { background = { border_width = 2, border_color = colors.black } }
     })
 
@@ -52,18 +51,6 @@ for i = 1, SPACE_COUNT, 1 do
         },
       })
     end
-
-    local space_popup = sbar.add("item", {
-        position = "popup." .. space_item.name,
-        padding_left = 5,
-        background = {
-            drawing = true,
-            image = {
-                corner_radius = 9,
-                scale = 0.2
-            }
-        }
-    })
 
     -- Subscribe to space changes 
     local space = sbar.add("space", "space." .. i, {
