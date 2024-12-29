@@ -1,6 +1,9 @@
 local settings = require("settings")
 
 local WINDOW_STR_DELIMITER = "<:>"
+local TRIMMED_STRING_ENDING = "..."
+local STRING_TRIM_LIMIT = 90
+local STRING_TRIM_LENGTH = STRING_TRIM_LIMIT - string.len(TRIMMED_STRING_ENDING)
 
 local function strsplit (inputstr, sep)
    if sep == nil then
@@ -20,8 +23,8 @@ local front_app = sbar.add("item", "front_app", {
       style = settings.font.style_map["Regular"],
       size = 13.0,
     },
-    width = 400,
-    y_offset = -7
+    width = 600,
+    y_offset = -7,
   },
   label = {
     font = {
@@ -29,7 +32,7 @@ local front_app = sbar.add("item", "front_app", {
       size = 11.0,
     },
       color = 0xffa7aab0,
-    padding_left = -397,
+    padding_left = -597,
     y_offset = 7,
   },
   updates = true,
@@ -48,5 +51,10 @@ front_app:subscribe("yabai_front_window_updated", function(env)
     app = strings[1]
     window_title = strings[2]
   end
+
+  if string.len(window_title) > STRING_TRIM_LIMIT then
+    window_title = string.sub(window_title, 0, STRING_TRIM_LENGTH) .. TRIMMED_STRING_ENDING
+  end
+
   front_app:set({ label = { string = app,  }, icon = window_title })
 end)
