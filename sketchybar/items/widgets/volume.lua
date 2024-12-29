@@ -13,11 +13,13 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
         padding_left = -5,
         font = { family = settings.font.numbers }
     },
+    width = 0,
 })
 
 local volume_icon = sbar.add("item", "widgets.volume2", {
     position = "right",
-    padding_right = -1,
+    padding_right = 0,
+    padding_left = 0,
     icon = {
         string = icons.volume._100,
         width = 0,
@@ -157,5 +159,5 @@ volume_percent:subscribe("mouse.scrolled", volume_scroll)
 
 return {
     volume_icon = volume_icon,
-    volume_percent = volume_percent
+    -- volume_percent = volume_percent
 }

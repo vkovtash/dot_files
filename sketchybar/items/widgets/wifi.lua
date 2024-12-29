@@ -59,6 +59,8 @@ local popup_width = 250
 local wifi = sbar.add("item", "widgets.wifi.padding", {
     position = "right",
     label = { drawing = false },
+    padding_left = 4,
+    padding_right = 0,
 })
 
 -- Background around the item
@@ -153,7 +155,10 @@ local router = sbar.add("item", {
     },
 })
 
-sbar.add("item", { position = "right", width = settings.group_paddings })
+-- sbar.add("item", {
+--   position = "right",
+--   width = 0--settings.group_paddings 
+-- })
 
 -- wifi_up:subscribe("network_update", function(env)
 --     local up_color = (env.upload == "000 Bps") and colors.grey or colors.red

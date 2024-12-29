@@ -10,6 +10,8 @@ local battery = sbar.add("item", "widgets.battery", {
             size = 19.0,
         }
     },
+    padding_left = 0,
+    padding_right = 2,
     label = { font = { family = settings.font.numbers } },
     update_freq = 180,
     popup = { align = "center" }
@@ -96,7 +98,7 @@ sbar.add("bracket", "widgets.battery.bracket", { battery.name }, {
 
 sbar.add("item", "widgets.battery.padding", {
     position = "right",
-    width = settings.group_paddings
+    width = 0 -- settings.group_paddings
 })
 
 return {

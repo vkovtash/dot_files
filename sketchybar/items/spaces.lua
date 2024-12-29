@@ -1,6 +1,4 @@
 local colors = require("colors")
-local icons = require("icons")
-local settings = require("settings")
 local app_icons = require("helpers.app_icons")
 
 local spaces = {}
@@ -8,38 +6,34 @@ local spaces = {}
 for i = 1, 10, 1 do
     local space = sbar.add("space", "space." .. i, {
         space = i,
-        icon = {
-            font = { family = settings.font.numbers },
-            string = i,
-            padding_left = 15,
-            padding_right = 8,
-            color = colors.white,
-            highlight_color = colors.white,
-        },
         label = {
-            padding_right = 20,
+            padding_left = -3,
+            padding_right = 3,
             color = colors.grey,
             highlight_color = colors.white,
             font = "sketchybar-app-font:Regular:16.0",
-            y_offset = -1,
+            y_offset = 0,
         },
-        padding_right = 1,
-        padding_left = 1,
+        padding_right = 2,
+        padding_left = 2,
+        position = "center",
         background = {
             color = colors.bar.bg,
             border_width = 0,
-            height = 26,
+            height = 25,
             border_color = colors.black,
         },
-        popup = { background = { border_width = 5, border_color = colors.black } }
+        popup = { background = { border_width = 2, border_color = colors.black } }
     })
 
     spaces[i] = space
 
     -- Single item bracket for space items to achieve double border on highlight
     local space_bracket = sbar.add("bracket", { space.name }, {
+        padding_right = 0,
+        padding_left = 0,
         background = {
-            color = colors.item.bg,
+            -- color = colors.item.bg,
             border_color = colors.item.border,
             height = 28,
             border_width = 2
@@ -50,13 +44,13 @@ for i = 1, 10, 1 do
     sbar.add("space", "space.padding." .. i, {
         space = i,
         script = "",
-        width = settings.group_paddings,
+        width = 2,
+        position = "center",
     })
 
     local space_popup = sbar.add("item", {
         position = "popup." .. space.name,
         padding_left = 5,
-        padding_right = 0,
         background = {
             drawing = true,
             image = {
@@ -68,7 +62,6 @@ for i = 1, 10, 1 do
 
     space:subscribe("space_change", function(env)
         local selected = env.SELECTED == "true"
-        local color = selected and colors.item.border_selected or colors.item.border
         space:set({
             icon = { highlight = selected, },
             label = { highlight = selected },
@@ -105,79 +98,25 @@ local space_window_observer = sbar.add("item", {
     updates = true,
 })
 
-local spaces_indicator = sbar.add("item", {
-    padding_left = -3,
-    padding_right = 0,
-    icon = {
-        padding_left = 8,
-        padding_right = 9,
-        color = colors.grey,
-        string = icons.switch.on,
-    },
-    label = {
-        width = 0,
-        padding_left = 0,
-        padding_right = 8,
-        string = "Spaces",
-        color = colors.grey,
-    },
-    background = {
-        color = colors.with_alpha(colors.grey, 0.0),
-        border_color = colors.with_alpha(colors.grey, 0.0),
-    }
-})
-
 space_window_observer:subscribe("space_windows_change", function(env)
     local icon_line = ""
     local no_app = true
     for app, count in pairs(env.INFO.apps) do
-        no_app = false
         local lookup = app_icons[app]
         local icon = ((lookup == nil) and app_icons["default"] or lookup)
-        icon_line = icon_line .. " " .. icon
+        if no_app then
+          icon_line = icon
+          no_app = false
+        else
+          icon_line = icon_line .. " " .. icon
+        end
     end
 
     if (no_app) then
-        icon_line = " —"
+        icon_line = "       " .. app_icons["default"]
     end
     sbar.animate("tanh", 10, function()
         spaces[env.INFO.space]:set({ label = icon_line })
     end)
 end)
 
-spaces_indicator:subscribe("swap_menus_and_spaces", function(env)
-    local currently_on = spaces_indicator:query().icon.value == icons.switch.on
-    spaces_indicator:set({
-        icon = currently_on and icons.switch.off or icons.switch.on
-    })
-end)
-
-spaces_indicator:subscribe("mouse.entered", function(env)
-    sbar.animate("tanh", 30, function()
-        spaces_indicator:set({
-            background = {
-                color = { alpha = 1.0 },
-                border_color = { alpha = 1.0 },
-            },
-            icon = { color = colors.bg1 },
-            label = { width = "dynamic" }
-        })
-    end)
-end)
-
-spaces_indicator:subscribe("mouse.exited", function(env)
-    sbar.animate("tanh", 30, function()
-        spaces_indicator:set({
-            background = {
-                color = { alpha = 0.0 },
-                border_color = { alpha = 0.0 },
-            },
-            icon = { color = colors.grey },
-            label = { width = 0, }
-        })
-    end)
-end)
-
-spaces_indicator:subscribe("mouse.clicked", function(env)
-    sbar.trigger("swap_menus_and_spaces")
-end)
